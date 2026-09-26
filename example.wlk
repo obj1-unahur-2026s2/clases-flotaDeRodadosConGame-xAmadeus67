@@ -1,9 +1,11 @@
-object pepita {
-  var energy = 100
+class Rodado {
+  const capacidad = 4
+  var color 
+  const peso = 1300
+  const velocidad = 150
 
-  method energy() = energy
-
-  method fly(minutes) {
-    energy = energy - minutes * 3
-  }
+  method velocidadMaxima() = velocidad
+  method capacidad() = capacidad
+  method color() = color
+  method peso() = peso
 }
