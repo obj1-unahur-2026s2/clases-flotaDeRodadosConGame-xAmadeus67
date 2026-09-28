@@ -6,18 +6,45 @@ describe "test con 2 dependencias" {
   const cultura = new Dependencia(empleados = 31)
   const cachito = new Corsa(color = "rojo")
   const corsaAzul = new Corsa(color = "azul")
-  const kwidEjemplo = new Kwid(tanqueAdicional = true)
+  const corsaVerde = new Corsa(color="verde")
+  const kwidConTanque = new Kwid(tanqueAdicional = true)
   const autoEspecial = new Especial(capacidad=5,velocidad=160,peso=1200,color="beige")
+  const kwidSinTanque = new Kwid(tanqueAdicional = false)
+  const traficPopular = trafic
+
 
   method initialize() {
+    traficPopular.cambiarMotor(bataton)
+    traficPopular.cambiarInterior(popular)
     deportes.agregarAFlota(cachito)
     deportes.agregarAFlota(corsaAzul)
-    deportes.agregarAFlota(kwidEjemplo)
+    deportes.agregarAFlota(corsaVerde)
+    deportes.agregarAFlota(kwidConTanque)
     deportes.agregarAFlota(autoEspecial)
+    cultura.agregarAFlota(cachito)
+    cultura.agregarAFlota(kwidConTanque)
+    cultura.agregarAFlota(kwidConTanque)
+    cultura.agregarAFlota(kwidSinTanque)
+    cultura.agregarAFlota(traficPopular)
   }
 
   
-  test "description" {
-    
+  test "el peso total de deportes es de 6450" {
+    assert.equals(6450, deportes.pesoTotalFlota())
+  } 
+  test "el peso total de cultura es de 10700" {
+    assert.equals(10700, cultura.pesoTotalFlota())
+  }
+  test "capacidad faltante de deportes es de 25 personas" {
+    assert.equals(25, deportes.capacidadFaltante())
+  }
+  test "la flota de deportes puede llevar a 20 personas" {
+    assert.equals(20, deportes.capacidadTotal())
+  }
+  test "la capacidad faltante de cultura 5 personas" {
+    assert.equals(5, cultura.capacidadFaltante())
+  }
+  test "la capacidad total de cultura es de 26 personas" {
+    assert.equals(26, cultura.capacidadTotal())
   }
 }
